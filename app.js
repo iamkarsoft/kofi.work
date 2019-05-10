@@ -1,4 +1,4 @@
-'use strict';
+'use-strict';
 
 var express = require('express');
 var pug = require('pug');
@@ -18,8 +18,11 @@ app.set('view engine','pug')
 app.set('views',__dirname + '/src/templates');
 
 
-app.gget('', function(req,res){
+app.get('/', function(req,res){
 	var path = req.path;
-	res.render('index')
+	res.render('index');
+});
 
-})
+app.listen(port, function(){
+	console.log('server running on '+port+' !');
+});
