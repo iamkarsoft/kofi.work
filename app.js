@@ -8,7 +8,7 @@ var app = express();
 fs = require('fs');
 
 
-port = parseInt(process.env.PORT, 10) || 8686;
+port = parseInt(process.env.PORT, 10) || 7777;
 
 
 app.use('/static/',express.static(__dirname + '/src/public'));
