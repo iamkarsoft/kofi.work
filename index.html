@@ -28,7 +28,8 @@
         <div class="md:flex ">
             <myimage class="w-64 my__image"></myimage>
 
-            <div class="bg-white flex-grow-1 md:-ml-4 my-auto p-10 ">
+            <div class="bg-white flex-grow-1 md:-ml-12 my-auto p-10 ">
+              <h1 class="font-bold text-center text-4xl">{{name}}</h1>
               <intro class=""></intro>
             </div>
         </div>
@@ -66,7 +67,8 @@ Vue.component('myimage',{
 });
 
 Vue.component('intro',{
-template: `<h1 class="text-center text-xl"> Web developer from Ghana. I'm keen on building simple, responsive websites and web applications using PHP, Laravel and VueJS</h1>`
+template: `
+<h2 class="text-center text-xl"> Web developer from Ghana. I'm keen on building simple, responsive websites and web applications using PHP, Laravel and VueJS</h2>`
 
 });
 
@@ -79,6 +81,7 @@ Vue.component('social-media',{
     const app = new Vue({
       el : '#app',
       data: {
+        name: "Kofi Ramos",
         socialList:[
 
         {
