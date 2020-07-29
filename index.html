@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="./public/css/animate.min.css">
     <!-- <link rel="stylesheet" href="./public/css/main.css"> -->
     <link rel="stylesheet" href="./public/css/kofiramos.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body class="bg-gray-300">
@@ -27,6 +31,18 @@
             <div class="bg-white flex-grow-1 md:-ml-4 my-auto p-10 ">
               <intro class=""></intro>
             </div>
+        </div>
+
+        <div class="flex mt-4">
+          <social-media
+            v-for="social in socialList"
+            v-bind:social="social"
+            v-bind:key="social.name"
+            :href="social.link"
+
+          >
+            <!-- {{social.name}} -->
+          </social-media>
         </div>
       </div>
     </div>
@@ -54,14 +70,42 @@ template: `<h1 class="text-center text-xl"> Web developer from Ghana. I'm keen o
 
 });
 
+Vue.component('social-media',{
+  props:['social'],
+  template: '<a class="mx-2 mt-4"><i :class="social.icon"></i></a>'
+});
+
 
     const app = new Vue({
       el : '#app',
       data: {
-        email: 'karsoft92@gmail.com',
-        facebook: 'facebook.com/iamkarsoft',
-        twitter: 'twitter.com/iamkarsoft',
-        instagram: 'instagram.com/iamkarsoft'
+        socialList:[
+
+        {
+          name: 'email',
+          link: 'mailto:karsoft92@gmail.com',
+          icon: 'fas fa-envelope fa-2x'
+        },
+        {
+          name: 'facebook',
+          link: 'http://facebook.com/iamkarsoft',
+          icon: 'fab fa-facebook-f fa-2x'
+
+        },
+        {
+          name: 'twitter',
+          link: 'http://twitter.com/iamkarsoft',
+          icon: 'fab fa-twitter fa-2x'
+
+        },
+        {
+          name: 'instagram',
+          link: 'http://instagram.com/iamkarsoft',
+          icon: 'fab fa-instagram fa-2x'
+
+
+        }
+        ],
       }
 
     });
