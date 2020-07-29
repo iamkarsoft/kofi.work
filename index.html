@@ -8,25 +8,70 @@
     </scrip>
     <![endif] -->
     <meta charset="UTF-8">
-    <title>Kofi Ramos</title>
+    <title>Kofi Ramos - Web Developer</title>
+<link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./public/css/animate.min.css">
+    <!-- <link rel="stylesheet" href="./public/css/main.css"> -->
+    <link rel="stylesheet" href="./public/css/kofiramos.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
-<body>
+<body class="bg-gray-300">
+  <div id="app" class="p-5">
+    <logo class="font-bold"></logo>
+
+    <div class="wrapper">
+      <div class="mx-auto md:w-2/3  ">
+        <div class="md:flex ">
+            <myimage class="w-64 my__image"></myimage>
+
+            <div class="bg-white flex-grow-1 md:-ml-4 my-auto p-10 ">
+              <intro class=""></intro>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
 
 
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vuex"></script>
     <!-- vue -->
 
 <script>
+  // Define a new component called todo-item
+Vue.component('logo', {
+  template: `<nav class="text-6xl">KR</nav>`
+});
+
+Vue.component('myimage',{
+  template: `<img src="./public/img/kofiramos.jpg" alt="kofi ramos image" />`
+});
+
+Vue.component('intro',{
+template: `<h1 class="text-center text-xl"> Web developer from Ghana. I'm keen on building simple, responsive websites and web applications. I've a interest in php, wordpress, laravel and learning javascript.</h1>`
+
+});
+
+
     const app = new Vue({
       el : '#app',
+      data: {
+        email: 'karsoft92@gmail.com',
+        facebook: 'facebook.com/iamkarsoft',
+        twitter: 'twitter.com/iamkarsoft',
+        instagram: 'instagram.com/iamkarsoft'
+      }
 
     });
+
 </script>
+<style>
+.my__image{
+  width: 450px
+}
+</style>
 <!-- app -->
 </body>
 </html>
