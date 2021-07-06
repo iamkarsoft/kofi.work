@@ -6,7 +6,7 @@
         websites and web applications using PHP, Laravel, Javascript and
         learning in public
         <a
-          href="http://blog.kofi.work"
+          href="https://blog.kofi.work"
           class="border-b-2 border-indigo-600 pb-1"
           target="_target"
           >here.</a
