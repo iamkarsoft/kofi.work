@@ -4,12 +4,12 @@
       <div class="text-center text-xl">
         Web developer from Ghana. I'm keen on building simple, responsive
         websites and web applications using PHP, Laravel, Javascript and
-        learning in public
+        writing my experiences
         <a
           href="https://blog.kofi.work"
           class="border-b-2 border-indigo-600 pb-1"
           target="_target"
-          >here.</a
+          >on my blog.</a
         >
       </div>
   </div>

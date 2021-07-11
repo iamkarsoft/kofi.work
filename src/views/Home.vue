@@ -27,7 +27,7 @@
 <script>
 import Layout from "@/components/Layout.vue";
 import MyImage from "@/components/MyImage.vue";
-import About from "@/components/About.vue";
+import About from "@/Pages/About.vue";
 import Social from "@/components/Social.vue";
 export default {
   components: { Layout, MyImage, About, Social },
