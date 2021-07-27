@@ -4,9 +4,9 @@
         KR
       </div>
       <div class="lg:flex items-center">
-        <a href="" class="m-4">Home</a>
-        <a href="" class="m-4">Portfolio</a>
-        <a href="https://blog.kofi.work" target="_blank" class="m-4">Blog</a>
+        <router-link to="/" class="m-4">Home</router-link>
+        <router-link to="/portfolio" class="m-4">Portfolio</router-link>
+       <a href="https://blog.kofi.work" target="_blank" class="m-4">Blog</a>
       </div>
     </nav>
 </template>

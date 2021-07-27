@@ -1,25 +1,27 @@
 <template>
   <div >
-    <Navigation />
-    <Home />
+     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Home from './views/Home.vue';
-import Navigation from './components/Navigation.vue';
+
 export default {
   name: 'App',
-  components: {
-    Home,
-    Navigation
-  }
+
 };
+
+
 </script>
 
 <style>
+@import './assets/css/animate.min.css';
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Montserrat&display=swap');
+
+
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Abril Fatface', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

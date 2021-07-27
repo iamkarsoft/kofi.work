@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <Layout class="wrapper p-5">
+    <Layout>
       <div class="mx-auto md:w-2/5 lg:w-2/3">
         <div class="lg:flex">
           <MyImage class="w-full my__image" />
@@ -21,7 +20,6 @@
         </div>
       </div>
     </Layout>
-  </div>
 </template>
 
 <script>
@@ -30,6 +28,7 @@ import MyImage from "@/components/MyImage.vue";
 import About from "@/Pages/About.vue";
 import Social from "@/components/Social.vue";
 export default {
+  name:'Home',
   components: { Layout, MyImage, About, Social },
   data() {
     return {
@@ -54,6 +53,12 @@ export default {
           name: "instagram",
           link: "http://instagram.com/iamkarsoft",
           icon: "fab fa-instagram fa-2x",
+        },
+        {
+          name: "Github",
+          link: "http://github.com/iamkarsoft",
+          icon: "fab fa-github fa-2x"
+
         },
       ],
     };
