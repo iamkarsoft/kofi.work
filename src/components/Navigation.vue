@@ -6,6 +6,7 @@
       <div class="lg:flex items-center">
         <router-link to="/" class="m-4">Home</router-link>
         <router-link to="/portfolio" class="m-4">Portfolio</router-link>
+        <router-link to="/resume" class="m-4">Resume</router-link>
        <a href="https://blog.kofi.work" target="_blank" class="m-4">Blog</a>
       </div>
     </nav>

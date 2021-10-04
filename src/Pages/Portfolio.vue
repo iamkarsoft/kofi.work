@@ -233,38 +233,6 @@
           </footer>
         </section>
 
-        <section class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col justify-between ">
-          <header class="lg:flex justify-between">
-            <div>
-              <h4 class="text-2xl font-bold">Borga Travel</h4>
-              <div class="text-gray-800 text-md font-bold">Freelance</div>
-              <span class="text-gray-600 text-md font-bold"
-                >2016</span
-              >
-            </div>
-            <div class="flex">
-              <a href="http://borgatravel.com/" target="_blank"
-                ><span class="fa fa-link fa-sm"></span
-              ></a>
-            </div>
-          </header>
-          <article class="mt-5">
-            Borga Travel & Tour offer a complete travel management service to
-            the Ghanaian public, everything from planning to execution of tours.
-          </article>
-          <footer class="lg:flex mt-6 flex-wrap">
-            <span class="mx-2 bg-blue-700 text-white font-bold rounded p-2 mt-2"
-              >Html / Css</span
-            >
-
-             <span class="mx-2 bg-blue-700 text-white font-bold rounded p-2 mt-2"
-              >Bootstrap</span
-            >
-            <span class="mx-2 bg-blue-700 text-white font-bold rounded p-2 mt-2"
-              >Hosting</span
-            >
-          </footer>
-        </section>
       </section>
     </div>
   </Layout>

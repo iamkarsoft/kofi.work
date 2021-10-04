@@ -5,6 +5,7 @@ import App from './App.vue'
 
 import Home from './views/Home.vue'
 import Portfolio from './Pages/Portfolio.vue'
+import MyResume from './Pages/MyResume.vue'
 
 Vue.use(VueRouter);
 
@@ -23,6 +24,11 @@ const routes = [
     path: "/portfolio",
     name: "portfolio",
     component: Portfolio
+  },
+  {
+    path: "/resume",
+    name: "resume",
+    component: MyResume
   }
 ];
 
