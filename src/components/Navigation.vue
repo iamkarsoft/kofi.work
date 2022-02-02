@@ -1,10 +1,10 @@
 <template>
     <nav class="lg:flex justify-between lg:px-10">
       <div class="text-6xl p-4 text-left font-bold">
-        KR
+        <router-link to="/">KR</router-link>
       </div>
       <div class="lg:flex items-center">
-        <router-link to="/" class="m-4">Home</router-link>
+        <router-link to="/about" class="m-4">About</router-link>
         <router-link to="/portfolio" class="m-4">Portfolio</router-link>
         <router-link to="/resume" class="m-4">Resume</router-link>
        <a href="https://blog.kofi.work" target="_blank" class="m-4">Blog</a>

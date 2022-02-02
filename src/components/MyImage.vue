@@ -1,5 +1,5 @@
 <template>
-    <img src="img/kofiramos.jpg" alt="kofi ramos image" />
+    <img src="img/kofiramos.jpg" alt="kofi ramos image" class="object-fit  " />
 </template>
 
 <script>
@@ -9,7 +9,5 @@ export default{
 </script>
 
 <style>
-.my__image{
-  width: 450px;
-}
+
 </style>
