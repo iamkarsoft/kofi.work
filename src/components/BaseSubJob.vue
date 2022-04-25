@@ -1,7 +1,7 @@
 <template>
-  <section class="job__content mt-4">
+  <section class="job__content mt-4 relative">
     <section class="lg:flex lg:justify-between relative">
-      <slot name="title"></slot>
+      <slot name="title" class="font-bold text-2xl text-gray-700 my-2"></slot>
       <slot name="date"></slot>
     </section>
     <section class="">

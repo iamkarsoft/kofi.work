@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="w-full lg:w-2/3 mx-auto">
+    <div class="w-full lg:w-2/3 mx-auto mt-10">
       <h3 class="text-4xl text-center font-bold mt-10">Projects</h3>
 
       <section class="mt-4 grid lg:grid-cols-3 gap-4 pt-10  ">
@@ -33,7 +33,7 @@
                 >2021 - Ongoing</span
               >
             </div>
-            
+
           </header>
           <article class="mt-5">
             Merbak provides quality engineering and procurement services which
@@ -63,7 +63,7 @@
               >The Movie Db</a
             >.
           </article>
-          
+
         </a>
 
         <a href="https://edwuma.kofi.work" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col ">
@@ -77,12 +77,12 @@
                 >2019 - Ongoing</span
               >
             </div>
-           
+
           </header>
           <article class="mt-5">
             Edwuma is a job portal linking recruiters and talents.
           </article>
-         
+
         </a>
 
         <a href="http://sgidghana.com" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col justify-between ">
@@ -115,7 +115,7 @@
                 >2019</span
               >
             </div>
-            
+
           </header>
           <article class="mt-5">
             Merbak construction and concrete products is a concrete product company located at Adenta, Amanfrom Junction.
@@ -131,12 +131,12 @@
                 >2016</span
               >
             </div>
-           
+
           </header>
           <article class="mt-5">
             Travel Dot Com provide a range of well packages, services for the hospitality industry for both local and foreign tourist including trips and flight arrangement, ground handling and conference for growth.
           </article>
-          
+
         </a>
 
       </section>

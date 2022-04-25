@@ -7,6 +7,7 @@ import Home from './views/Home.vue'
 import About from './Pages/About.vue'
 import Portfolio from './Pages/Portfolio.vue'
 import MyResume from './Pages/MyResume.vue'
+import NotFound from '@/components/NotFound.vue'
 
 Vue.use(VueRouter);
 
@@ -35,7 +36,8 @@ const routes = [
     path: "/resume",
     name: "resume",
     component: MyResume
-  }
+  },
+  { path: '/:pathMatch(.*)*',alias:'/404', component: NotFound }
 ];
 
 

@@ -1,32 +1,54 @@
 <template>
-  <section class="job__content mt-4 p-3">
-    <section class="lg:flex lg:justify-between relative">
-      <slot name="title"></slot>
-      <slot name="date"></slot>
+  <section class="job__content mt-10 p-3 relative ">
+    <div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-8 w-8 text-indigo-400 my-4 rounded-full bg-white p-1"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
+          clip-rule="evenodd"
+        />
+        <path
+          d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z"
+        />
+      </svg>
+    </div>
+    <section class="lg:flex lg:justify-between relative items-center">
+      <div class="ml-0 job__title font-bold text-2xl text-gray-700 my-2">
+      <slot name="title" ></slot>
+      </div>
+      <div class=" ">
+      <slot name="date" class=""></slot>
+      </div>
+
     </section>
-    <section class="border-l border-gray-400  p-2">
-      <section class="text-sm">
+    <section class="">
+      <section class="text-sm  mb-2">
         <slot name="company"></slot>
       </section>
-      <section>
-        <slot></slot>
+      <section class="mt-4">
+        <slot name="duties"></slot>
       </section>
     </section>
   </section>
 </template>
 <script>
 export default {
-
-  name: 'BaseJob',
+  name: "BaseJob",
 
   data() {
-    return {
-
-    }
-  }
+    return {};
+  },
 };
-
 </script>
 <style lang="css" scoped>
-
+.job__content svg {
+  position: absolute;
+  top: -2rem;
+  left: -1.2rem;
+}
 </style>

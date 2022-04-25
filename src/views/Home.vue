@@ -1,6 +1,6 @@
 <template>
     <Layout>
-      <div class="mx-auto md:w-2/5 lg:w-2/4">
+      <div class="mx-auto md:w-2/5 lg:w-2/4 mt-10">
         <div class="lg:flex mt-10 lg:mt-0">
           <div class="w-40 rounded border-2   border-gray-200 ">
             <MyImage class="w-full transform -rotate-6 "/>

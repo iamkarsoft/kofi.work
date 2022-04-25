@@ -1,27 +1,21 @@
 <template>
-  <div >
-     <router-view></router-view>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-
+  name: "App",
 };
-
-
 </script>
 
 <style>
-@import './assets/css/animate.min.css';
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Montserrat&display=swap');
-
-
+@import "./assets/css/animate.min.css";
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface|Montserrat&display=swap");
 
 #app {
-  font-family: 'Abril Fatface', Helvetica, Arial, sans-serif;
+  font-family: "Abril Fatface", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
