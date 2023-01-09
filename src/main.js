@@ -4,7 +4,6 @@ import VueRouter from 'vue-router';
 import App from './App.vue'
 
 import Home from './views/Home.vue'
-import About from './Pages/About.vue'
 import Portfolio from './Pages/Portfolio.vue'
 import MyResume from './Pages/MyResume.vue'
 import NotFound from '@/components/NotFound.vue'
@@ -24,8 +23,8 @@ const routes = [
   },
   {
     path: "/about",
-    name: "about",
-    component: About
+    name: "home",
+    component: Home
   },
   {
     path: "/portfolio",
@@ -37,7 +36,11 @@ const routes = [
     name: "resume",
     component: MyResume
   },
-  { path: '/:pathMatch(.*)*',alias:'/404', component: NotFound }
+  {
+    path: '/:pathMatch(.*)*',
+    alias:'/404',
+    component: NotFound
+  }
 ];
 
 

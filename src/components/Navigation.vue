@@ -1,5 +1,5 @@
 <template>
-  <nav class="lg:flex justify-between w-full lg:w-3/4 mx-auto lg:px-10 bg-white pt-0 mt-0">
+  <nav class="lg:flex justify-between w-full lg:w-3/4 mx-auto lg:px-10 pt-0 mt-0">
     <div class="text-6xl p-4 text-left font-bold">
       <router-link to="/" class="mb-4">KR</router-link>
     </div>

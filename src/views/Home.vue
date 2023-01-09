@@ -18,6 +18,17 @@
         websites and web applications using PHP, Laravel, Javascript.
         </div>
 
+          <section class=" mx-auto mt-10 ">
+
+      <p class="text-xl mt-4">
+        I currently work as a web developer at a small agency / software company in Accra, Ghana. Most of the time is spent building web apps and internal tools using Laravel and Vue JS.
+      </p>
+
+      <p class="mt-4 text-xl">
+        When I'm not at the computer, I enjoy dancing Kizomba, Xbox Gaming, Watching Formula 1 or Football, or either hanging out with <a href="https://www.4kgh.club" target="_blank">the squad</a>.
+      </p>
+      </section>
+
         <div class="flex mt-4 w-full">
           <Social
             v-for="social in socialList"
@@ -26,6 +37,8 @@
             :href="social.link"
             />
         </div>
+
+
       </div>
     </Layout>
 </template>

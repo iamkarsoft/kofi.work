@@ -35,7 +35,7 @@
             </div>
 
           </header>
-          <article class="mt-5">
+          <article class="">
             Merbak provides quality engineering and procurement services which
             includes Electrical and Electronic Instrumentation, ROV tools,
             subsea equipment and many more.
@@ -55,7 +55,7 @@
               >
             </div>
           </header>
-          <article class="mt-5">
+          <article class="">
             A mini app that pulls a list of current movies and series from
             <a
               href="https://www.themoviedb.org/documentation/api"
@@ -79,32 +79,14 @@
             </div>
 
           </header>
-          <article class="mt-5">
+          <article class="">
             Edwuma is a job portal linking recruiters and talents.
           </article>
 
         </a>
 
-        <a href="http://sgidghana.com" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col justify-between ">
-          <header class="lg:flex justify-center text-center h-40">
-            <div>
-              <h4 class="text-4xl font-bold h-24">SGID Ghana</h4>
-              <div class="text-gray-800 text-md font-bold">
-                <a href="https://kamalnet.work" target="_blank">Kamal Network Agency</a>
-              </div>
-              <span class="text-gray-600 text-md font-bold"
-                >2019 - Ongoing</span
-              >
-            </div>
-                   </header>
-          <article class="mt-5">
-            Under Maitenance
-          </article>
-        </a>
 
-
-
-        <a href="http://merbakconcrete.com/" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col justify-between  ">
+        <a href="http://merbakconcrete.com/" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col  ">
           <header class="lg:flex justify-center text-center h-40">
             <div>
               <h4 class="text-4xl font-bold h-24">Merbak Concrete</h4>
@@ -117,7 +99,7 @@
             </div>
 
           </header>
-          <article class="mt-5">
+          <article class="">
             Merbak construction and concrete products is a concrete product company located at Adenta, Amanfrom Junction.
           </article>
         </a>
@@ -133,7 +115,7 @@
             </div>
 
           </header>
-          <article class="mt-5">
+          <article class="">
             Travel Dot Com provide a range of well packages, services for the hospitality industry for both local and foreign tourist including trips and flight arrangement, ground handling and conference for growth.
           </article>
 
