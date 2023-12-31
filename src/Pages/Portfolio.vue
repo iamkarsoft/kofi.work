@@ -1,17 +1,21 @@
 <template>
   <Layout>
-    <div class="w-full lg:w-2/3 mx-auto mt-10">
-      <h3 class="text-4xl text-center font-bold mt-10">Projects</h3>
+    <div class="w-full mx-auto mt-10 lg:w-2/3">
+      <h3 class="mt-10 text-4xl font-bold text-center">Projects</h3>
 
-      <section class="mt-4 grid lg:grid-cols-3 gap-4 pt-10  ">
-        <a href="http://invoices.kofi.work" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col ">
-          <header class="lg:flex justify-center h-40">
+      <section class="grid gap-4 pt-10 mt-4 lg:grid-cols-3">
+        <a
+          href="http://invoices.kofi.work"
+          target="_blank"
+          class="flex flex-col p-5 mt-5 bg-white border-2 border-gray-200 rounded-lg"
+        >
+          <header class="justify-center h-40 lg:flex">
             <div class="text-center">
-              <h4 class="text-4xl font-bold h-24">Invoices</h4>
-              <div class="text-gray-800 text-md font-bold">
+              <h4 class="h-24 text-4xl font-bold">Invoices</h4>
+              <div class="font-bold text-gray-800 text-md">
                 Personal Project
               </div>
-              <span class="text-gray-600 text-md font-bold"
+              <span class="font-bold text-gray-600 text-md"
                 >2021 - Ongoing</span
               >
             </div>
@@ -22,18 +26,23 @@
           </article>
         </a>
 
-           <a  href="https://www.merbakmondeal.com/" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col ">
-          <header class="lg:flex justify-ceter text-center h-40">
+        <a
+          href="https://www.merbakmondeal.com/"
+          target="_blank"
+          class="flex flex-col p-5 mt-5 bg-white border-2 border-gray-200 rounded-lg"
+        >
+          <header class="h-40 text-center lg:flex justify-ceter">
             <div>
-              <h4 class="text-4xl font-bold h-24">Merbak Mondeal</h4>
-              <div class="text-gray-800 text-md font-bold">
-                <a href="https://kamalnet.work" target="_blank">Kamal Network Agency</a>
+              <h4 class="h-24 text-4xl font-bold">Merbak Mondeal</h4>
+              <div class="font-bold text-gray-800 text-md">
+                <a href="https://kamalnet.work" target="_blank"
+                  >Kamal Network Agency</a
+                >
               </div>
-              <span class="text-gray-600 text-md font-bold"
+              <span class="font-bold text-gray-600 text-md"
                 >2021 - Ongoing</span
               >
             </div>
-
           </header>
           <article class="">
             Merbak provides quality engineering and procurement services which
@@ -42,15 +51,18 @@
           </article>
         </a>
 
-
-        <a href="https://movieapp.kofi.work" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col  ">
-          <header class="lg:flex h-40 text-center justify-center">
+        <a
+          href="https://movieapp.kofi.work"
+          target="_blank"
+          class="flex flex-col p-5 mt-5 bg-white border-2 border-gray-200 rounded-lg"
+        >
+          <header class="justify-center h-40 text-center lg:flex">
             <div>
-              <h4 class="text-4xl font-bold h-24">Movie App</h4>
-              <div class="text-gray-800 text-md font-bold">
+              <h4 class="h-24 text-4xl font-bold">Movie App</h4>
+              <div class="font-bold text-gray-800 text-md">
                 Personal Project
               </div>
-              <span class="text-gray-600 text-md font-bold"
+              <span class="font-bold text-gray-600 text-md"
                 >2020 - Ongoing</span
               >
             </div>
@@ -63,64 +75,50 @@
               >The Movie Db</a
             >.
           </article>
-
         </a>
 
-        <a href="https://edwuma.kofi.work" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col ">
-          <header class="lg:flex text-center justify-center h-40 ">
+        <a
+          href="https://edwuma.kofi.work"
+          target="_blank"
+          class="flex flex-col p-5 mt-5 bg-white border-2 border-gray-200 rounded-lg"
+        >
+          <header class="justify-center h-40 text-center lg:flex">
             <div>
-              <h4 class="text-4xl font-bold h-24">Edwuma Portal</h4>
-              <div class="text-gray-800 text-md font-bold">
+              <h4 class="h-24 text-4xl font-bold">Edwuma Portal</h4>
+              <div class="font-bold text-gray-800 text-md">
                 Personal Project
               </div>
-              <span class="text-gray-600 text-md font-bold"
+              <span class="font-bold text-gray-600 text-md"
                 >2019 - Ongoing</span
               >
             </div>
-
           </header>
           <article class="">
             Edwuma is a job portal linking recruiters and talents.
           </article>
-
         </a>
 
-
-        <a href="http://merbakconcrete.com/" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col  ">
-          <header class="lg:flex justify-center text-center h-40">
+        <a
+          href="http://merbakconcrete.com/"
+          target="_blank"
+          class="flex flex-col p-5 mt-5 bg-white border-2 border-gray-200 rounded-lg"
+        >
+          <header class="justify-center h-40 text-center lg:flex">
             <div>
-              <h4 class="text-4xl font-bold h-24">Merbak Concrete</h4>
-              <div class="text-gray-800 text-md font-bold">
-                <a href="https://kamalnet.work" target="_blank">Kamal Network Agency</a>
+              <h4 class="h-24 text-4xl font-bold">Merbak Concrete</h4>
+              <div class="font-bold text-gray-800 text-md">
+                <a href="https://kamalnet.work" target="_blank"
+                  >Kamal Network Agency</a
+                >
               </div>
-              <span class="text-gray-600 text-md font-bold"
-                >2019</span
-              >
+              <span class="font-bold text-gray-600 text-md">2019</span>
             </div>
-
           </header>
           <article class="">
-            Merbak construction and concrete products is a concrete product company located at Adenta, Amanfrom Junction.
+            Merbak construction and concrete products is a concrete product
+            company located at Adenta, Amanfrom Junction.
           </article>
         </a>
-
-        <a  href="https://traveldotcom.org/" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-5 mt-5 flex flex-col ">
-          <header class="lg:flex justify-center text-center h-40">
-            <div>
-              <h4 class="text-4xl font-bold h-24">Travel Dot Com</h4>
-              <div class="text-gray-800 text-md font-bold">Freelance</div>
-              <span class="text-gray-600 text-md font-bold"
-                >2016</span
-              >
-            </div>
-
-          </header>
-          <article class="">
-            Travel Dot Com provide a range of well packages, services for the hospitality industry for both local and foreign tourist including trips and flight arrangement, ground handling and conference for growth.
-          </article>
-
-        </a>
-
       </section>
     </div>
   </Layout>
