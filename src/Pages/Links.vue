@@ -23,11 +23,19 @@ data() {
   return {
     linksList: [
       {
-        title: "Methods Are Affordances, Not Abilities",
-        link: "https://adamwathan.me/2017/01/24/methods-are-affordances-not-abilities/",
-        dateAdded: "2024-01-23",
-        category: "DevOps"
-      }
+       title: "Fast-track your career: How I went from Junior -> Senior engineer in 2 years",
+        link: "https://careercutler.substack.com/p/going-from-junior-senior-engineer",
+        dateAdded: "2024-02-15",
+        category: "Career"
+
+      },
+      {
+       title: "How To Fix Common LetsEncrypt Errors",
+        link: "https://www.digitalocean.com/community/tutorials/how-to-fix-common-letsencrypt-errors",
+        dateAdded: "2024-02-15",
+        category: "DevOps, Video, Tutorial"
+
+      },
       ],
     }
   },
