@@ -99,17 +99,13 @@
               <template v-slot:duties>
                 <ul class="px-8 list-disc">
                   <li>
-                    Building internal tools using Laravel, Livewire, Node.
+                    Development of new features and products, update of existing features and products, and integration with 3rd party services and tools.
                   </li>
                   <li>
-                    Building reusable code and libraries for our Custom
-                    Management System, and integration with 3rd party services
-                    and tools.
+                    Building reusable code and libraries for future use.
                   </li>
-                  <li>
-                    Testing and debugging Software to ensure high-quality code
-                    delivery
-                  </li>
+                  <li>Ensuring technical feasibility of Ui/Ux designs</li>
+                  <li>Optimizing application for speed and scalability</li>
                 </ul>
               </template>
             </base-job>
@@ -118,7 +114,7 @@
                 <h3>Full-Stack Web Developer</h3>
               </template>
               <template v-slot:date>
-                <span class="my-2">September 2021 - Present</span>
+                <span class="my-2">September 2021 - September 2023/span>
               </template>
               <template v-slot:company>
                 <span class="font-bold text-orange">AppGharage</span>
