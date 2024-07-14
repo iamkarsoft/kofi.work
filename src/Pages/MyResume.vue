@@ -114,7 +114,7 @@
                 <h3>Full-Stack Web Developer</h3>
               </template>
               <template v-slot:date>
-                <span class="my-2">September 2021 - September 2023/span>
+                <span class="my-2">September 2021 - September 2023</span>
               </template>
               <template v-slot:company>
                 <span class="font-bold text-orange">AppGharage</span>

@@ -1,7 +1,7 @@
 <template>
   <header class="w-full  flex lg:justify-between p-4">
     <section>
-      <h1 class="text-4xl lg:text-6xl text-orange font-extrabold">Kofi Ramos [Kofi Romain Amoussou]</h1>
+      <h1 class="text-4xl lg:text-6xl text-orange font-extrabold">Kofi Romain Amoussou</h1>
     </section>
 
     <section class="flex px-4 items-center">
