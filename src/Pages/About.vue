@@ -3,7 +3,7 @@
       <section class="md:w-2/5 mx-auto mt-10 lg:w-2/4">
         
       <h1 class="mt-10 font-extrabold text-4xl">About</h1>
-      <h2 class="font-bold  mt-4 text-3xl">Hi, I'm Kofi Ramos</h2>
+      <h2 class="font-bold  mt-4 text-3xl">Hi, I'm Kofi Romain Amoussou</h2>
       <p class="text-xl mt-4">
         I currently work as a web developer at a small agency / software company in Accra, Ghana. Most of the time is spent building web apps and internal tools using Laravel and Vue JS.
       </p>
