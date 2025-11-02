@@ -1,7 +1,8 @@
-import Vue from 'vue'
-import Vuex from "vuex";
-import VueRouter from 'vue-router';
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import { createStore } from 'vuex'
 import App from './App.vue'
+import '../tailwind.css'
 
 import Home from './views/Home.vue'
 import Portfolio from './Pages/Portfolio.vue'
@@ -9,14 +10,7 @@ import MyResume from './Pages/MyResume.vue'
 import NotFound from '@/components/NotFound.vue'
 import Links from './Pages/Links.vue'
 
-Vue.use(VueRouter);
-
-Vue.config.productionTip = false
-Vue.use(Vuex)
-
-
 const routes = [
-
   {
     path: "/",
     name: "home",
@@ -24,7 +18,7 @@ const routes = [
   },
   {
     path: "/about",
-    name: "home",
+    name: "about",
     component: Home
   },
   {
@@ -47,18 +41,20 @@ const routes = [
     alias:'/404',
     component: NotFound
   }
-];
+]
 
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+})
 
-const router = new VueRouter({
-  mode: 'history',
-  routes // short for `routes: routes`
-});
+const store = createStore({
+  // Add your store configuration here
+})
 
+const app = createApp(App)
 
+app.use(router)
+app.use(store)
 
-
-new Vue({
-  router,
-  render: h => h(App),
-}).$mount('#app')
+app.mount('#app')
