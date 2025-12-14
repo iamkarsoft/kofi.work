@@ -74,7 +74,6 @@ export default {
         }
         this.post = post;
       } catch (error) {
-        console.error("Error loading blog post:", error);
         this.post = null;
       }
     },

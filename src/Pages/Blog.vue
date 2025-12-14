@@ -198,21 +198,16 @@ export default {
   methods: {
     async loadPosts() {
       try {
-        console.log('Loading blog posts...');
         // Initialize and load posts
         const { initializeBlogPosts } = await import('@/utils/blogLoader');
         await initializeBlogPosts();
         this.allPosts = getAllPosts();
-        console.log('All posts loaded:', this.allPosts.length, this.allPosts);
         this.categories = getAllCategories();
-        console.log('Categories loaded:', this.categories);
         // Apply filter after loading
         this.$nextTick(() => {
           this.checkCategoryFromRoute();
         });
       } catch (error) {
-        console.error("Error loading blog posts:", error);
-        console.error("Error stack:", error.stack);
         this.allPosts = [];
         this.categories = [];
         this.filteredPosts = [];

@@ -1,0 +1,15 @@
+---
+title: September 2021
+layout: post
+date: 2021-10-25
+categories: personal
+---
+
+
+August was a though month both emotionally and physically. After my new contract, the new project involved 
+scrapping. This was out of my comfort league, for the past 2 months i've been trying to finish the project but there's still a lot to do.
+
+Regarding the project, I had to build a laravel package then use it to query the data from scrapping source. I was excited about this one, months ago before i got the job. I bought a laravel course that teaches how to build a laravel package, so this was my chance to and I was successful with that part of the task. The next part was scrapping the data, I was able to  do that as well but i'm stuck on making automating the scrapping into a serverless.
+
+
+So for the past few weeks i've been reading and getting into serverless. Hopefully i get to finish the project this month. Aside that, It's been a depressing month with a lot of issues. Financial, Emotional, But once there's life, there's hope. That's all for now.

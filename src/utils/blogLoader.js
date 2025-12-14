@@ -31,7 +31,6 @@ async function loadBlogFile(filePath) {
     blogContentCache[filePath] = content;
     return content;
   } catch (error) {
-    console.error(`Error loading blog file ${filePath}:`, error);
     return null;
   }
 }
@@ -82,10 +81,7 @@ export async function getAllPostsAsync() {
     const posts = [];
     const filePaths = Object.keys(blogFilePaths);
     
-    console.log('Blog file paths found:', filePaths.length, filePaths);
-    
     if (filePaths.length === 0) {
-      console.warn('No markdown files found in blog directory');
       return [];
     }
     
@@ -102,7 +98,6 @@ export async function getAllPostsAsync() {
         const contentString = await loadBlogFile(filePath);
         
         if (!contentString) {
-          console.warn(`No content found for ${fileName}`);
           return null;
         }
         
@@ -111,7 +106,8 @@ export async function getAllPostsAsync() {
         const postDate = data.date || dateFromFile || null;
         const categories = parseCategories(data.categories || data.tags);
         
-        return {
+        // Build the post object, ensuring categories is always an array
+        const post = {
           slug: slug,
           filename: fileName,
           title: data.title || 'Untitled',
@@ -119,13 +115,22 @@ export async function getAllPostsAsync() {
           author: data.author || 'Unknown',
           excerpt: data.excerpt || '',
           layout: data.layout || 'post',
-          categories: categories,
-          tags: categories,
           content: markdownContent,
-          ...data
+          // Spread other data fields
+          ...data,
+          // Override with our parsed values to ensure correct types
+          categories: categories, // Always an array
+          tags: categories // Always an array
         };
+        
+        // Remove categories/tags from spread if they exist as strings
+        delete post.categories;
+        delete post.tags;
+        post.categories = categories;
+        post.tags = categories;
+        
+        return post;
       } catch (error) {
-        console.error(`Error loading post from ${filePath}:`, error);
         return null;
       }
     });
@@ -133,10 +138,8 @@ export async function getAllPostsAsync() {
     const loadedPosts = await Promise.all(loadPromises);
     const validPosts = loadedPosts.filter(post => post !== null);
     
-    console.log(`Successfully loaded ${validPosts.length} posts`);
     return validPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
   } catch (error) {
-    console.error('Error in getAllPosts:', error);
     return [];
   }
 }
@@ -154,7 +157,6 @@ export function getAllPosts() {
 export async function initializeBlogPosts() {
   if (cachedPosts.length === 0) {
     cachedPosts = await getAllPostsAsync();
-    console.log('Blog posts initialized and cached:', cachedPosts.length);
   }
   return cachedPosts;
 }
@@ -180,7 +182,6 @@ export async function getPostBySlugAsync(slug) {
     }
     
     if (!foundFilePath) {
-      console.error(`Post not found: ${slug}`);
       return null;
     }
     
@@ -195,7 +196,8 @@ export async function getPostBySlugAsync(slug) {
     const postDate = data.date || dateFromFile || null;
     const categories = parseCategories(data.categories || data.tags);
     
-    return {
+    // Build the post object, ensuring categories is always an array
+    const post = {
       slug: actualSlug,
       filename: fileName,
       title: data.title || 'Untitled',
@@ -203,14 +205,20 @@ export async function getPostBySlugAsync(slug) {
       author: data.author || 'Unknown',
       excerpt: data.excerpt || '',
       layout: data.layout || 'post',
-      categories: categories,
-      tags: categories,
       content: markdownContent,
       html: marked(markdownContent),
+      // Spread other data fields
       ...data
     };
+    
+    // Remove categories/tags from spread if they exist as strings, then set as arrays
+    delete post.categories;
+    delete post.tags;
+    post.categories = categories;
+    post.tags = categories;
+    
+    return post;
   } catch (error) {
-    console.error(`Post not found: ${slug}`, error);
     return null;
   }
 }
