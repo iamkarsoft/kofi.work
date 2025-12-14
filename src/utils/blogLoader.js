@@ -12,7 +12,9 @@ if (typeof window !== 'undefined') {
 // Get list of markdown files using import.meta.glob
 // This gives us the file paths
 const blogFilePaths = import.meta.glob('../blog/*.md', { 
-  eager: false 
+  eager: false,
+  query: '?raw',
+  import: 'default'
 });
 
 // Cache for loaded blog content
@@ -25,10 +27,11 @@ async function loadBlogFile(filePath) {
   }
   
   try {
-    // Convert the import path to a URL we can fetch
-    // In Vite, we can import with ?raw to get raw text
-    const module = await import(/* @vite-ignore */ filePath + '?raw');
-    const content = module.default;
+    // The glob already includes ?raw query, so we can call it directly
+    const loader = blogFilePaths[filePath];
+    if (!loader) return null;
+    
+    const content = await loader();
     blogContentCache[filePath] = content;
     return content;
   } catch (error) {
