@@ -1,8 +1,13 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createStore } from 'vuex'
+import { Buffer } from 'buffer'
 import App from './App.vue'
 import '../tailwind.css'
+
+// Make Buffer available globally for gray-matter
+window.Buffer = Buffer
+globalThis.Buffer = Buffer
 
 import Home from './views/Home.vue'
 import Portfolio from './Pages/Portfolio.vue'

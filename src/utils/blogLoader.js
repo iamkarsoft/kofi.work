@@ -1,5 +1,12 @@
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { Buffer } from 'buffer';
+
+// Make Buffer available globally for gray-matter
+if (typeof window !== 'undefined') {
+  window.Buffer = Buffer;
+  global.Buffer = Buffer;
+}
 
 // Get list of markdown files using import.meta.glob
 // This gives us the file paths
