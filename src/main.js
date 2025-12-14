@@ -9,6 +9,8 @@ import Portfolio from './Pages/Portfolio.vue'
 import MyResume from './Pages/MyResume.vue'
 import NotFound from '@/components/NotFound.vue'
 import Links from './Pages/Links.vue'
+import Blog from './Pages/Blog.vue'
+import BlogPost from './Pages/BlogPost.vue'
 
 const routes = [
   {
@@ -35,6 +37,21 @@ const routes = [
     path: "/links",
     name: 'useful links',
     component: Links
+  },
+  {
+    path: "/blog",
+    name: "blog",
+    component: Blog
+  },
+  {
+    path: "/blog/category/:category",
+    name: "blogCategory",
+    component: Blog
+  },
+  {
+    path: "/blog/:slug",
+    name: "blogPost",
+    component: BlogPost
   },
   {
     path: '/:pathMatch(.*)*',

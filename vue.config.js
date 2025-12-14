@@ -5,6 +5,15 @@ module.exports = defineConfig({
   configureWebpack: {
     output: {
       hashFunction: 'xxhash64'
+    },
+    module: {
+      rules: [
+        {
+          test: /\.md$/,
+          exclude: /node_modules/,
+          use: 'raw-loader'
+        }
+      ]
     }
   }
 })
