@@ -127,7 +127,7 @@ categories: api javascript laravel
   {
     "grant_type": "password",
     "client_id": "2", // found in oauth clients table
-    "client_secret":"M4MHPaIWrCi2rUkZLch1ViaBCPRpEK8GhcFjOhM9", // found in oauth clients table
+    "client_secret":"yourandomauth", // found in oauth clients table
   	"username": "kofi@kofi.work",
   	"password": "hellofresh",
   	"scope":"*"
