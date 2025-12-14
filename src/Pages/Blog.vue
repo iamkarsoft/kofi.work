@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="w-full mx-auto mt-10 lg:w-4/5 max-w-7xl px-4">
+    <div class="w-full mx-auto mt-10 max-w-6xl px-2">
       <h3 class="mt-10 text-4xl font-bold text-center mb-8">Blog</h3>
 
       <!-- Active Category Indicator -->
@@ -21,6 +21,77 @@
       <div class="flex flex-col lg:flex-row gap-8">
         <!-- Left Column: Blog Posts (2/3) -->
         <div class="lg:w-2/3">
+          <!-- Top Pagination -->
+          <div v-if="totalPages > 1" class="mb-6 flex justify-center items-center gap-2 flex-wrap text-xs">
+            <button
+              @click="goToPage(1)"
+              :disabled="currentPage === 1"
+              :class="[
+                'px-4 py-2 rounded-lg font-semibold transition-colors text-sm',
+                currentPage === 1
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-indigo-600 text-white hover:bg-indigo-700'
+              ]"
+            >
+              First
+            </button>
+
+            <button
+              @click="goToPage(currentPage - 1)"
+              :disabled="currentPage === 1"
+              :class="[
+                'px-4 py-2 rounded-lg font-semibold transition-colors',
+                currentPage === 1
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-indigo-600 text-white hover:bg-indigo-700'
+              ]"
+            >
+              ← Previous
+            </button>
+
+            <div class="flex gap-1">
+              <button
+                v-for="page in visiblePages"
+                :key="page"
+                @click="goToPage(page)"
+                :class="[
+                  'px-4 py-2 rounded-lg font-semibold transition-colors',
+                  currentPage === page
+                    ? 'bg-indigo-600 text-white'
+                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                ]"
+              >
+                {{ page }}
+              </button>
+            </div>
+
+            <button
+              @click="goToPage(currentPage + 1)"
+              :disabled="currentPage === totalPages"
+              :class="[
+                'px-4 py-2 rounded-lg font-semibold transition-colors',
+                currentPage === totalPages
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-indigo-600 text-white hover:bg-indigo-700'
+              ]"
+            >
+              Next →
+            </button>
+
+            <button
+              @click="goToPage(totalPages)"
+              :disabled="currentPage === totalPages"
+              :class="[
+                'px-4 py-2 rounded-lg font-semibold transition-colors',
+                currentPage === totalPages
+                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                  : 'bg-indigo-600 text-white hover:bg-indigo-700'
+              ]"
+            >
+              Last
+            </button>
+          </div>
+
           <!-- Blog Posts -->
           <section class="grid gap-4 pt-4">
         <article
@@ -65,7 +136,20 @@
       </section>
 
       <!-- Pagination -->
-      <div v-if="totalPages > 1" class="mt-8 flex justify-center items-center gap-2">
+      <div v-if="totalPages > 1" class="mt-8 flex justify-center items-center gap-2 flex-wrap text-xs">
+        <button
+          @click="goToPage(1)"
+          :disabled="currentPage === 1"
+          :class="[
+            'px-4 py-2 rounded-lg font-semibold transition-colors',
+            currentPage === 1
+              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              : 'bg-indigo-600 text-white hover:bg-indigo-700'
+          ]"
+        >
+          First
+        </button>
+
         <button
           @click="goToPage(currentPage - 1)"
           :disabled="currentPage === 1"
@@ -106,6 +190,19 @@
           ]"
         >
           Next →
+        </button>
+
+        <button
+          @click="goToPage(totalPages)"
+          :disabled="currentPage === totalPages"
+          :class="[
+            'px-4 py-2 rounded-lg font-semibold transition-colors',
+            currentPage === totalPages
+              ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+              : 'bg-indigo-600 text-white hover:bg-indigo-700'
+          ]"
+        >
+          Last
         </button>
       </div>
 
