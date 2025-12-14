@@ -1,14 +1,22 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import { createStore } from 'vuex'
+import { Buffer } from 'buffer'
 import App from './App.vue'
 import '../tailwind.css'
+import 'highlight.js/styles/github-dark.css'
+
+// Make Buffer available globally for gray-matter
+window.Buffer = Buffer
+globalThis.Buffer = Buffer
 
 import Home from './views/Home.vue'
 import Portfolio from './Pages/Portfolio.vue'
 import MyResume from './Pages/MyResume.vue'
 import NotFound from '@/components/NotFound.vue'
 import Links from './Pages/Links.vue'
+import Blog from './Pages/Blog.vue'
+import BlogPost from './Pages/BlogPost.vue'
 
 const routes = [
   {
@@ -35,6 +43,21 @@ const routes = [
     path: "/links",
     name: 'useful links',
     component: Links
+  },
+  {
+    path: "/blog",
+    name: "blog",
+    component: Blog
+  },
+  {
+    path: "/blog/category/:category",
+    name: "blogCategory",
+    component: Blog
+  },
+  {
+    path: "/blog/:slug",
+    name: "blogPost",
+    component: BlogPost
   },
   {
     path: '/:pathMatch(.*)*',

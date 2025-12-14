@@ -1,5 +1,5 @@
 <template>
-    <img src="img/kofiramos.jpg" alt="kofi ramos image" class="object-fit  " />
+    <img src="/img/kofiramos.jpg" alt="kofi ramos image" class="object-fit" />
 </template>
 
 <script>

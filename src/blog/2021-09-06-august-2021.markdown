@@ -1,0 +1,16 @@
+---
+title: August 2021
+layout: post
+date: 2021-09-06
+categories: recap growth
+---
+
+# August 2021
+
+It's been 6 month since I started my internship at AppGharage. With a new contract on the table, looking back to when i accepted the offer, i can confidenlty say it was a good decision. My goal from last year into this year was to become a better laravel developer and strenghten my frontend skills using a frontend framework like VueJs.
+  
+
+Fast forward 6 months, the internship have given me the opportunity to improve my backend skills using laravel as well as Deploying an app using Heroku and Laravel forge, while learning and working with VueJS and InertiaJs on the frontend. I had teamates who made asking questions and learning really easy and painless. I was also introduced to scrapping and hope to develop this skill. Also got to improve my api knowledge while building this huge app for the company.
+  
+
+I'm now being offered a Fullstack role which consist of me handling the frontend and backend of an app. Hopefully I get to improve on my current knowledge. I'm currently taking the frontend nanodegree at Udacity and trying to complete freecodecamp curriculum.
