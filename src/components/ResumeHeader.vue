@@ -6,7 +6,7 @@
 
     <section class="flex px-4 items-center">
         <Social href="https://github.com/iamkarsoft" social="github" name="github" class="  fab fa-github fa-2x" target="_blank"></Social>
-        <a href="mailto:karsoft92@gmail.com" class="mx-2 mt-4"><i class="fas fa-envelope fa-2x"></i></a>
+        <a href="mailto:karsoft92@gmail.com" class="mx-2 mt-4" target="_blank"><i class="fas fa-envelope fa-2x"></i></a>
     </section>
 
 

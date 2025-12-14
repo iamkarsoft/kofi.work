@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div
-      class="w-full p-4 mx-auto mt-10 bg-white border-2 border-gray-400 lg:w-3/4"
+      class="w-full p-4 mx-auto mt-10 bg-white border-2 border-gray-400 lg:max-w-5xl"
     >
       <section class="w-full">
         <resume-header></resume-header>
