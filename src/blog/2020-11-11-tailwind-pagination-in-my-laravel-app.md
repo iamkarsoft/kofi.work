@@ -7,7 +7,6 @@ categories: tailwind css laravel
 
 This is the settings i'm using in my laravel app to enable tailwind pagination.
 
-{% include codeHeader.html %}
 ```
 module.exports = {
   theme: {

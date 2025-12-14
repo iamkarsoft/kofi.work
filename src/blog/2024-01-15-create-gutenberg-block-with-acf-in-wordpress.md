@@ -9,7 +9,6 @@ categories: wordpress wp acf
 ## Register block function in `functions.php` and call it
 
 
-{% include codeHeader.html %}
 ```php
 
 /** Custom Blocks */

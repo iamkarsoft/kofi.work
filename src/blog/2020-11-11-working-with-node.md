@@ -25,7 +25,6 @@ categories: nodejs javascript
 
 ### creating a basic server `server.js`
 
-{% include codeHeader.html %} 
 ```javascript
 const express = require('express')
 const app = express()
@@ -91,7 +90,6 @@ module.exports = router
 
 ### Creating the Rest
 
-{% include codeHeader.html %}
 ```javascript
 const express = require('express')
 const router = express.Router()
@@ -126,7 +124,6 @@ module.exports = router
 
 ### creating a model for subscriber database interaction `models/subscriber.js`
 
-{% include codeHeader.html %}
 ```javascript
 const mongoose = require('mongoose')
 
@@ -156,7 +153,6 @@ module.exports = mongoose.model('Subscriber',subscriberSchema)
 
 ### Get data from the routes
 
-{% include codeHeader.html %}
 ```javascript
 const Subscriber = require('../models/subscriber')
 //get all
@@ -191,7 +187,6 @@ try{
 
 ### Creating a middleware
 
-{% include codeHeader.html %}
 ```javascript
 async function getSubscriber(req, res, next){
 let subscriber
@@ -212,7 +207,6 @@ next()
 
 ### other routes data
 
-{% include codeHeader.html %}
 ```javascript
 // update
 router.patch('/:id', async(req,res)=>{

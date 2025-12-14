@@ -1,37 +1,7 @@
 <template>
   <Layout>
-    <div class="w-full mx-auto mt-10 lg:w-2/3">
-      <h3 class="mt-10 text-4xl font-bold text-center">Blog</h3>
-
-      <!-- Category Filter -->
-      <div class="mt-6 mb-8">
-        <div class="flex flex-wrap gap-2 justify-center">
-          <button
-            @click="filterByCategory(null)"
-            :class="[
-              'px-4 py-2 rounded-lg text-sm font-semibold transition-colors',
-              selectedCategory === null
-                ? 'bg-indigo-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            ]"
-          >
-            All Posts
-          </button>
-          <button
-            v-for="category in categories"
-            :key="category"
-            @click="filterByCategory(category)"
-            :class="[
-              'px-4 py-2 rounded-lg text-sm font-semibold transition-colors capitalize',
-              selectedCategory === category
-                ? 'bg-indigo-600 text-white'
-                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            ]"
-          >
-            {{ category }}
-          </button>
-        </div>
-      </div>
+    <div class="w-full mx-auto mt-10 lg:w-4/5 max-w-7xl px-4">
+      <h3 class="mt-10 text-4xl font-bold text-center mb-8">Blog</h3>
 
       <!-- Active Category Indicator -->
       <div v-if="selectedCategory" class="mb-4 text-center">
@@ -47,8 +17,12 @@
         </span>
       </div>
 
-      <!-- Blog Posts -->
-      <section class="grid gap-4 pt-4 mt-4 lg:grid-cols-1">
+      <!-- 2 Column Layout -->
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Left Column: Blog Posts (2/3) -->
+        <div class="lg:w-2/3">
+          <!-- Blog Posts -->
+          <section class="grid gap-4 pt-4">
         <article
           v-for="post in paginatedPosts"
           :key="post.slug"
@@ -135,8 +109,45 @@
         </button>
       </div>
 
-      <div v-if="totalPages > 1" class="mt-4 text-center text-sm text-gray-600">
-        Page {{ currentPage }} of {{ totalPages }} ({{ filteredPosts.length }} posts)
+          <div v-if="totalPages > 1" class="mt-4 text-center text-sm text-gray-600">
+            Page {{ currentPage }} of {{ totalPages }} ({{ filteredPosts.length }} posts)
+          </div>
+        </div>
+
+        <!-- Right Column: Categories/Tags (1/3) -->
+        <aside class="lg:w-1/3">
+          <div class="sticky top-20">
+            <div class="bg-white p-6 rounded-lg shadow-lg border-2 border-gray-200">
+              <h4 class="text-xl font-bold mb-4">Categories</h4>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  @click="filterByCategory(null)"
+                  :class="[
+                    'px-4 py-2 rounded-lg text-sm font-semibold transition-colors',
+                    selectedCategory === null
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  ]"
+                >
+                  All Posts
+                </button>
+                <button
+                  v-for="category in categories"
+                  :key="category"
+                  @click="filterByCategory(category)"
+                  :class="[
+                    'px-4 py-2 rounded-lg text-sm font-semibold transition-colors capitalize',
+                    selectedCategory === category
+                      ? 'bg-indigo-600 text-white'
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  ]"
+                >
+                  {{ category }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   </Layout>

@@ -15,7 +15,6 @@ For a while i had this error on my personal website which uses vuejs. Everytime 
 
 I had to add a few lines to my `apache.conf` file to tell the server how to handle that particular website.
 
-{% include codeHeader.html %}
 ```bash
 <Directory /var/www/html/>
         RewriteEngine On

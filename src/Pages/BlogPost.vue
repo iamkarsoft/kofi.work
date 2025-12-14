@@ -2,7 +2,12 @@
   <Layout>
     <div class="w-full mx-auto mt-10 lg:w-2/3">
       <div v-if="post">
-        <component :is="layoutComponent" :post="post" />
+        <component 
+          :is="layoutComponent" 
+          :post="post" 
+          :previousPost="previousPost"
+          :nextPost="nextPost"
+        />
       </div>
 
       <div v-else class="text-center py-10">
@@ -44,6 +49,9 @@ export default {
   data() {
     return {
       post: null,
+      allPosts: [],
+      previousPost: null,
+      nextPost: null,
     };
   },
   computed: {
@@ -65,6 +73,11 @@ export default {
     async loadPost() {
       const slug = this.$route.params.slug;
       try {
+        // Load all posts to get navigation
+        const { getAllPosts, initializeBlogPosts } = await import('@/utils/blogLoader');
+        await initializeBlogPosts();
+        this.allPosts = getAllPosts();
+        
         // Try cached first
         let post = getPostBySlug(slug);
         if (!post) {
@@ -73,8 +86,19 @@ export default {
           post = await getPostBySlugAsync(slug);
         }
         this.post = post;
+        
+        // Find previous and next posts
+        if (this.post && this.allPosts.length > 0) {
+          const currentIndex = this.allPosts.findIndex(p => p.slug === this.post.slug);
+          if (currentIndex !== -1) {
+            this.previousPost = currentIndex > 0 ? this.allPosts[currentIndex - 1] : null;
+            this.nextPost = currentIndex < this.allPosts.length - 1 ? this.allPosts[currentIndex + 1] : null;
+          }
+        }
       } catch (error) {
         this.post = null;
+        this.previousPost = null;
+        this.nextPost = null;
       }
     },
   },

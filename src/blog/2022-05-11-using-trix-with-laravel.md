@@ -13,7 +13,6 @@ So here are the steps.
 
 1. include trix css and js in your blade file<br>
 
-{% include codeHeader.html %}
 ```html
 <link href="{{ asset('css/trix.css') }}" rel="stylesheet">
   <script src="{{asset('js/trix.js')}}" defer></script>
@@ -25,7 +24,6 @@ So here are the steps.
 
 You neet the trix editor tag and set a hidden input that will hold the set content.
 
-{% include codeHeader.html %}
 ```php
 
 <input id="bio" type="hidden" name="how_to_apply" value="" class=""/>

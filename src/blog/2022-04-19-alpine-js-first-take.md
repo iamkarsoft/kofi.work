@@ -19,7 +19,6 @@ categories: alpine js laravel
 
 ## Click Element
 
-{% include codeHeader.html %}
 ```
 
 <div x-data="{open: false}">
@@ -39,7 +38,6 @@ categories: alpine js laravel
 - **x-text** for outputting text of a function
 
 
-{% include codeHeader.html %}
 ```
 
 
@@ -65,7 +63,6 @@ categories: alpine js laravel
 
 - **x-data**
 
-{% include codeHeader.html %}
 ```
 
 
@@ -94,7 +91,6 @@ categories: alpine js laravel
 
 - **x-if**
 
-{% include codeHeader.html %}
 ```
 
 <template x-if="visible">
@@ -110,7 +106,6 @@ categories: alpine js laravel
 
 - **x-for**
 
-{% include codeHeader.html %}
 ```
  <template x-for="user in users" :key="user.id">
  	<span x-text="user.name"></span>
@@ -121,7 +116,6 @@ categories: alpine js laravel
 
 ## Binding values
 
-{% include codeHeader.html %}
 ```
 	<div x-data="{name: 'alex'}">
 		<input type="text" x-bind:value="name">
@@ -135,7 +129,6 @@ categories: alpine js laravel
 
 ## Component initialization
 
-{% include codeHeader.html %}
 ```js
 <div x-data="state()" x-init="mounted">
 		<span x-text="counter"></span>

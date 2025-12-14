@@ -1,6 +1,7 @@
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import { Buffer } from 'buffer';
+import hljs from 'highlight.js';
 
 // Make Buffer available globally for gray-matter
 if (typeof window !== 'undefined') {
@@ -258,6 +259,21 @@ export function getAllCategories() {
   
   return Array.from(categorySet).sort();
 }
+
+// Configure marked to use highlight.js for code blocks
+marked.setOptions({
+  highlight: function(code, lang) {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return hljs.highlight(code, { language: lang }).value;
+      } catch (err) {
+        // Fall through to default
+      }
+    }
+    return hljs.highlightAuto(code).value;
+  },
+  langPrefix: 'hljs language-'
+});
 
 // Convert markdown to HTML
 export function markdownToHtml(markdown) {

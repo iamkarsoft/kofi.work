@@ -9,7 +9,6 @@ categories: php laravel snippets
 
 Imagine this seeder code, and imagine if for some reason this seeder would be launched more than once:
 
-{% include codeHeader.html %}
 ```
 public function run()
 {
@@ -30,7 +29,6 @@ public function run()
 
 ###  Run Seeder Class From Migration
 
-{% include codeHeader.html %}
 ```
 public function up()
 {
@@ -48,7 +46,6 @@ public function up()
 ### Seeder Factory with Relationship: Use Parent’s Factory
 If you use Factories for your seeds, how do you set up relationships between two models? For example, you need to seed 10 companies and 10 contacts within those companies? `database/factories/CompanyFactory.php `
 
-{% include codeHeader.html %}
 ```
 $factory->define(App\Contact::class, function (Faker\Generator $faker) {
     return [
@@ -66,7 +63,6 @@ $factory->define(App\Contact::class, function (Faker\Generator $faker) {
 
 ### DatabaseSeeder for Local and Production
 
-{% include codeHeader.html %}
 ```
 class DatabaseSeeder extends Seeder
 {

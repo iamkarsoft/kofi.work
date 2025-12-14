@@ -7,7 +7,6 @@ categories: sublime packages settings gist
 
 ### Hiding folders from project using project manager plugin
 
-{% include codeHeader.html %}
 ```
 {
   "folders":

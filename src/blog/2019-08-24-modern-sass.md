@@ -5,7 +5,6 @@ date:   2019-08-24 19:34:49 +0000
 categories: css sass course
 ---
 
-{% include codeHeader.html %}
 ```
 //color usage
 

@@ -9,7 +9,6 @@ Following ajax with jquery, I took axios for a spin
 
 #### Getting data with axios
 
-{% include codeHeader.html %}
 ```
 axios.get('https://jsonplaceholder.typicode.com/posts')
 	.then(function(response){
@@ -22,7 +21,6 @@ axios.get('https://jsonplaceholder.typicode.com/posts')
 
 #### Posting data with axios
 
-{% include codeHeader.html %}
 ```
 let resultContainer = document.querySelector("#containerThree");
 	let todotitle = document.querySelector('#title').value;

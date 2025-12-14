@@ -13,7 +13,6 @@ Modern web applications demand fluid, intuitive navigation that keeps users enga
 
 The heart of smooth scrolling navigation lies in the `scrollToSection` method. This JavaScript function provides a clean way to navigate to specific sections of your page without the jarring jump that traditional anchor links create.
 
-{% include codeHeader.html %}
 ```javascript
 scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);
@@ -41,7 +40,6 @@ The `scrollToSection` method works by:
 
 In your Vue.js template, you can wire up the smooth scrolling functionality to your navigation links:
 
-{% include codeHeader.html %}
 ```vue
 <a
   href="#about"
@@ -56,7 +54,6 @@ The `@click.prevent` directive prevents the default anchor behavior while trigge
 
 Complement your section navigation with a convenient scroll-to-top button:
 
-{% include codeHeader.html %}
 ```javascript
 scrollToTop() {
   window.scrollTo({
@@ -78,7 +75,6 @@ When implementing smooth scrolling, consider the mobile experience:
 
 While modern browsers widely support smooth scrolling, you can add fallbacks for older browsers:
 
-{% include codeHeader.html %}
 ```javascript
 scrollToSection(sectionId) {
   const element = document.getElementById(sectionId);

@@ -18,7 +18,6 @@ first of all we create a mailable with php artisan and generating a markdown ema
 #### calling it with extra arguments
 
 <br>
-{% include codeHeader.html %}
 ```
 use Mail;
 use App\Mail\Job\InviteCandidate; #  custom mailable class location
@@ -37,7 +36,6 @@ the mailable class `App > Mail > Job >InviteCandidate.php`
 
 <br>
 
-{% include codeHeader.html %}
 ```
 <?php
 

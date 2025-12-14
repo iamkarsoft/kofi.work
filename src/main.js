@@ -4,6 +4,7 @@ import { createStore } from 'vuex'
 import { Buffer } from 'buffer'
 import App from './App.vue'
 import '../tailwind.css'
+import 'highlight.js/styles/github-dark.css'
 
 // Make Buffer available globally for gray-matter
 window.Buffer = Buffer

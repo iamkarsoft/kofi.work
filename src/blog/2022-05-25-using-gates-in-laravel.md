@@ -20,7 +20,6 @@ Gates allow you to define an authorization rule using a simple closure-based app
 ### Defining custom gates in  `app/Providers/AuthServiceProvider`
 
 
-{% include codeHeader.html %}
 ```php
 
 public function boot()
@@ -78,7 +77,6 @@ return $user->role == User::MEMBER;
 
 ### Using your created gates in blade template
 
-{% include codeHeader.html %}
 ```php
 
 <x-layouts.layout>
@@ -111,7 +109,6 @@ return $user->role == User::MEMBER;
 
 ###  Using Gates in controller
 
-{% include codeHeader.html %}
 ```php
 
 //===========  allow role
@@ -153,7 +150,6 @@ Gate::authorize('isUser');
 
 ### Using Gates in routes
 
-{% include codeHeader.html %}
 ```php
 Route::get('/allow/admin', function () {
     echo 'allowed admin';
