@@ -7,7 +7,6 @@
       <router-link to="/about" class="m-4">About</router-link>
       <router-link to="/portfolio" class="m-4">Portfolio</router-link>
       <router-link to="/resume" class="m-4">Resume</router-link>
-      <router-link to="/links" class="m-4">Links</router-link>
       <router-link to="/blog" class="m-4">Blog</router-link>
     </div>
   </nav>
