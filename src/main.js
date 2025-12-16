@@ -14,7 +14,6 @@ import Home from './views/Home.vue'
 import Portfolio from './Pages/Portfolio.vue'
 import MyResume from './Pages/MyResume.vue'
 import NotFound from '@/components/NotFound.vue'
-import Links from './Pages/Links.vue'
 import Blog from './Pages/Blog.vue'
 import BlogPost from './Pages/BlogPost.vue'
 
@@ -38,11 +37,6 @@ const routes = [
     path: "/resume",
     name: "resume",
     component: MyResume
-  },
-  {
-    path: "/links",
-    name: 'useful links',
-    component: Links
   },
   {
     path: "/blog",
