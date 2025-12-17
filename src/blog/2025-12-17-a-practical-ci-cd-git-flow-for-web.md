@@ -5,11 +5,8 @@ date:   2025-12-17
 categories: devops ci cd ai-explains
 ---
 
-# A Practical CI/CD Git Flow for Web Apps
-
 This guide explains a **clean, modern, and production-safe CI/CD workflow** using Git branches, tags, and releases. It is suitable for **web apps, websites, Laravel projects, and Shopify apps**.
 
----
 
 ## 1. Core Concepts
 
