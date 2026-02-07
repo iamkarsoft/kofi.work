@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Laravel Live 2025: Complete Conference Guide"
-date:   2025-12-17
-categories: 
+date:   2025-06-10
+categories: conference laravel php infrastructure
 ---
 
 
