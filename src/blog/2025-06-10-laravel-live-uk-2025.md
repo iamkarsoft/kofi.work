@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  ""
+title:  "Laravel Live 2025: Complete Conference Guide"
 date:   2025-12-17
 categories: 
 ---
