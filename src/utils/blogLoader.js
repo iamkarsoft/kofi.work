@@ -119,6 +119,7 @@ export async function getAllPostsAsync() {
           author: data.author || 'Kofi Ramos',
           excerpt: data.excerpt || '',
           layout: data.layout || 'post',
+          learning_path: !!data.learning_path,
           content: markdownContent,
           // Spread other data fields
           ...data,
@@ -132,6 +133,7 @@ export async function getAllPostsAsync() {
         delete post.tags;
         post.categories = categories;
         post.tags = categories;
+        post.learning_path = !!data.learning_path;
         
         return post;
       } catch (error) {
@@ -247,6 +249,35 @@ export function getPostsByCategory(category) {
       cat.toLowerCase() === category.toLowerCase()
     )
   );
+}
+
+// Get all learning path posts
+export function getLearningPathPosts() {
+  const allPosts = getAllPosts();
+  return allPosts.filter(post => post.learning_path);
+}
+
+// Get learning paths grouped by category
+export function getLearningPaths() {
+  const posts = getLearningPathPosts();
+  const paths = {};
+
+  posts.forEach(post => {
+    if (post.categories && Array.isArray(post.categories)) {
+      post.categories.forEach(cat => {
+        const key = cat.toLowerCase();
+        if (!paths[key]) paths[key] = [];
+        paths[key].push(post);
+      });
+    }
+  });
+
+  // Sort each group oldest-first for chronological learning
+  Object.keys(paths).forEach(key => {
+    paths[key].sort((a, b) => new Date(a.date) - new Date(b.date));
+  });
+
+  return paths;
 }
 
 // Get all unique categories

@@ -10,35 +10,35 @@ categories: api jquery ajax javascript course-work
 
 ### The steps for an ajax request
 
-	1- Create request object
+    1- Create request object
 
-	2- create a callback function
+    2- create a callback function
 
-	3- open a request
+    3- open a request
 
-	4- send the request
+    4- send the request
 
 
 
 ### A simple example
 
 ```js
-	//1 creating the requet object
-	let xhr = new XMLHttpRequest();
+    //1 creating the requet object
+    let xhr = new XMLHttpRequest();
 
-	//creating callback
-	xhr.onreadystatechange = function(){
-		 if(xhr.readyState===4){
+    //creating callback
+    xhr.onreadystatechange = function(){
+         if(xhr.readyState===4){
 
-		 		document.getElementById('ajax').innerHTML = xhr.responseText;
-		 }
-	};
+                document.getElementById('ajax').innerHTML = xhr.responseText;
+         }
+    };
 
-	// 3 opening a request
-	xhr.open('GET','ajax-content.html');
+    // 3 opening a request
+    xhr.open('GET','ajax-content.html');
 
-	// 4 sending the request
-	xhr.send();
+    // 4 sending the request
+    xhr.send();
 ```
 
 
@@ -46,28 +46,28 @@ categories: api jquery ajax javascript course-work
 ### Using  A button to trigger the ajax request
 
 ```js
-//getting the button element	
+//getting the button element    
 let loadButton = document.getElementById("load");
 
 // attaching a click event to the button
-	loadButton.addEventListener('click',function(){
-			//1 creating the requet object
-	let xhr = new XMLHttpRequest();
+    loadButton.addEventListener('click',function(){
+            //1 creating the requet object
+    let xhr = new XMLHttpRequest();
 
-	//creating callback
-	xhr.onreadystatechange = function(){
-		 if(xhr.readyState===4){
+    //creating callback
+    xhr.onreadystatechange = function(){
+         if(xhr.readyState===4){
 
-		 		document.getElementById('ajax').innerHTML = xhr.responseText;
-		 }
-	};
+                document.getElementById('ajax').innerHTML = xhr.responseText;
+         }
+    };
 
-	//3 opening a request
-	xhr.open('GET','ajax-content.html');
+    //3 opening a request
+    xhr.open('GET','ajax-content.html');
 
-	// 4 sending the request
-	xhr.send();
-	})
+    // 4 sending the request
+    xhr.send();
+    })
 
 ```
 
@@ -78,7 +78,7 @@ let loadButton = document.getElementById("load");
 
 
 ```js
-	$('#ajax').load('ajax-content.html')
+    $('#ajax').load('ajax-content.html')
 ```
 
 
@@ -112,12 +112,12 @@ $.get(url,data,callback)
 ##### another example
 
 ```js
-	$('#load').click(function(){
-		$.get('ajax-content.html',function(response){
-			$("#ajax").html(response)
-		})
+    $('#load').click(function(){
+        $.get('ajax-content.html',function(response){
+            $("#ajax").html(response)
+        })
 
-		$("#ajax").toggle();
-	})
+        $("#ajax").toggle();
+    })
 
 ```
