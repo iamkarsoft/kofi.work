@@ -120,6 +120,8 @@ export async function getAllPostsAsync() {
           excerpt: data.excerpt || '',
           layout: data.layout || 'post',
           learning_path: !!data.learning_path,
+          path_tag: data.path_tag ? String(data.path_tag).trim() : null,
+          course: data.course ? String(data.course).trim() : null,
           content: markdownContent,
           // Spread other data fields
           ...data,
@@ -134,6 +136,8 @@ export async function getAllPostsAsync() {
         post.categories = categories;
         post.tags = categories;
         post.learning_path = !!data.learning_path;
+        post.path_tag = data.path_tag ? String(data.path_tag).trim() : null;
+        post.course = data.course ? String(data.course).trim() : null;
         
         return post;
       } catch (error) {
@@ -254,27 +258,35 @@ export function getPostsByCategory(category) {
 // Get all learning path posts
 export function getLearningPathPosts() {
   const allPosts = getAllPosts();
-  return allPosts.filter(post => post.learning_path);
+  return allPosts.filter(post => post.learning_path && post.path_tag);
 }
 
-// Get learning paths grouped by category
+// Get learning paths grouped by path_tag, with courses sub-grouped
+// Returns: { "laravel": { posts: [...], courses: { "Laravel Login": [...] } } }
 export function getLearningPaths() {
   const posts = getLearningPathPosts();
   const paths = {};
 
   posts.forEach(post => {
-    if (post.categories && Array.isArray(post.categories)) {
-      post.categories.forEach(cat => {
-        const key = cat.toLowerCase();
-        if (!paths[key]) paths[key] = [];
-        paths[key].push(post);
-      });
+    const key = post.path_tag.toLowerCase();
+    if (!paths[key]) {
+      paths[key] = { label: post.path_tag, posts: [], courses: {} };
+    }
+    paths[key].posts.push(post);
+
+    if (post.course) {
+      const courseKey = post.course;
+      if (!paths[key].courses[courseKey]) paths[key].courses[courseKey] = [];
+      paths[key].courses[courseKey].push(post);
     }
   });
 
-  // Sort each group oldest-first for chronological learning
-  Object.keys(paths).forEach(key => {
-    paths[key].sort((a, b) => new Date(a.date) - new Date(b.date));
+  // Sort posts oldest-first within each path and course
+  Object.values(paths).forEach(path => {
+    path.posts.sort((a, b) => new Date(a.date) - new Date(b.date));
+    Object.values(path.courses).forEach(coursePosts => {
+      coursePosts.sort((a, b) => new Date(a.date) - new Date(b.date));
+    });
   });
 
   return paths;

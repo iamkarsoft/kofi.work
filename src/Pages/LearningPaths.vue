@@ -10,14 +10,17 @@
 
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <router-link
-            v-for="(posts, topic) in learningPaths"
+            v-for="(pathData, topic) in learningPaths"
             :key="topic"
             :to="`/learning-paths/${topic}`"
             class="block p-6 bg-white border-2 border-gray-200 rounded-lg hover:shadow-lg hover:border-indigo-300 transition-all"
           >
-            <h4 class="text-2xl font-bold capitalize mb-2">{{ topic }}</h4>
+            <h4 class="text-2xl font-bold mb-2">{{ pathData.label }}</h4>
             <p class="text-gray-600 text-sm">
-              {{ posts.length }} {{ posts.length === 1 ? 'post' : 'posts' }}
+              {{ pathData.posts.length }} {{ pathData.posts.length === 1 ? 'post' : 'posts' }}
+              <span v-if="Object.keys(pathData.courses).length > 0" class="ml-1">
+                · {{ Object.keys(pathData.courses).length }} {{ Object.keys(pathData.courses).length === 1 ? 'course' : 'courses' }}
+              </span>
             </p>
           </router-link>
         </div>
@@ -38,33 +41,64 @@
           </router-link>
         </div>
 
-        <h3 class="text-4xl font-bold capitalize mb-2">{{ selectedTopic }}</h3>
+        <h3 class="text-4xl font-bold mb-2">{{ currentPath.label }}</h3>
         <p class="text-gray-600 mb-8">
-          {{ topicPosts.length }} {{ topicPosts.length === 1 ? 'post' : 'posts' }} — oldest first for step-by-step learning.
+          {{ currentPath.posts.length }} {{ currentPath.posts.length === 1 ? 'post' : 'posts' }}
         </p>
 
-        <ol class="space-y-4">
-          <li
-            v-for="(post, index) in topicPosts"
-            :key="post.slug"
-            class="flex gap-4 items-start p-5 bg-white border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow"
-          >
-            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-indigo-600 text-white font-bold text-sm">
-              {{ index + 1 }}
-            </span>
-            <div class="flex-1">
-              <router-link :to="`/blog/${post.slug}`" class="block">
-                <h4 class="text-xl font-bold mb-1">{{ post.title }}</h4>
-                <div class="flex items-center gap-4 text-sm text-gray-600 flex-wrap">
-                  <span v-if="post.date">{{ formatDate(post.date) }}</span>
+        <!-- Courses -->
+        <div v-if="Object.keys(currentPath.courses).length > 0" class="space-y-10">
+          <section v-for="(coursePosts, courseName) in currentPath.courses" :key="courseName">
+            <h4 class="text-2xl font-bold mb-4">{{ courseName }}</h4>
+            <ol class="space-y-4">
+              <li
+                v-for="(post, index) in coursePosts"
+                :key="post.slug"
+                class="flex gap-4 items-start p-5 bg-white border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow"
+              >
+                <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-indigo-600 text-white font-bold text-sm">
+                  {{ index + 1 }}
+                </span>
+                <div class="flex-1">
+                  <router-link :to="`/blog/${post.slug}`" class="block">
+                    <h4 class="text-xl font-bold mb-1">{{ post.title }}</h4>
+                    <div class="text-sm text-gray-600">
+                      <span v-if="post.date">{{ formatDate(post.date) }}</span>
+                    </div>
+                    <p v-if="post.excerpt" class="text-gray-700 mt-2 text-sm">{{ post.excerpt }}</p>
+                  </router-link>
                 </div>
-                <p v-if="post.excerpt" class="text-gray-700 mt-2 text-sm">{{ post.excerpt }}</p>
-              </router-link>
-            </div>
-          </li>
-        </ol>
+              </li>
+            </ol>
+          </section>
+        </div>
 
-        <div v-if="topicPosts.length === 0" class="text-center py-10 text-gray-500">
+        <!-- Uncategorised posts (no course) -->
+        <div v-if="uncategorisedPosts.length > 0" :class="{ 'mt-10': Object.keys(currentPath.courses).length > 0 }">
+          <h4 v-if="Object.keys(currentPath.courses).length > 0" class="text-2xl font-bold mb-4">Other Posts</h4>
+          <ol class="space-y-4">
+            <li
+              v-for="(post, index) in uncategorisedPosts"
+              :key="post.slug"
+              class="flex gap-4 items-start p-5 bg-white border-2 border-gray-200 rounded-lg hover:shadow-lg transition-shadow"
+            >
+              <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-indigo-600 text-white font-bold text-sm">
+                {{ index + 1 }}
+              </span>
+              <div class="flex-1">
+                <router-link :to="`/blog/${post.slug}`" class="block">
+                  <h4 class="text-xl font-bold mb-1">{{ post.title }}</h4>
+                  <div class="text-sm text-gray-600">
+                    <span v-if="post.date">{{ formatDate(post.date) }}</span>
+                  </div>
+                  <p v-if="post.excerpt" class="text-gray-700 mt-2 text-sm">{{ post.excerpt }}</p>
+                </router-link>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div v-if="currentPath.posts.length === 0" class="text-center py-10 text-gray-500">
           <p>No posts found for "{{ selectedTopic }}".</p>
         </div>
       </template>
@@ -88,9 +122,12 @@ export default {
     };
   },
   computed: {
-    topicPosts() {
-      if (!this.selectedTopic) return [];
-      return this.learningPaths[this.selectedTopic] || [];
+    currentPath() {
+      if (!this.selectedTopic) return { label: '', posts: [], courses: {} };
+      return this.learningPaths[this.selectedTopic] || { label: this.selectedTopic, posts: [], courses: {} };
+    },
+    uncategorisedPosts() {
+      return this.currentPath.posts.filter(post => !post.course);
     },
   },
   mounted() {

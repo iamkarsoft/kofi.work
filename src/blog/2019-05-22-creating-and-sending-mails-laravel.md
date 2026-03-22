@@ -2,7 +2,7 @@
 layout: post
 title:  "Creating and sending mails in laravel"
 date:   2019-05-22 23:48:49 +0000
-categories: php laravel 
+categories: php laravel
 ---
 
 ### Creating emails in php 
