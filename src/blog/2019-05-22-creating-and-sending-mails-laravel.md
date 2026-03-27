@@ -18,6 +18,7 @@ first of all we create a mailable with php artisan and generating a markdown ema
 #### calling it with extra arguments
 
 <br>
+
 ```
 use Mail;
 use App\Mail\Job\InviteCandidate; #  custom mailable class location
