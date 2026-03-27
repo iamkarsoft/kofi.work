@@ -16,6 +16,7 @@ import MyResume from './Pages/MyResume.vue'
 import NotFound from '@/components/NotFound.vue'
 import Blog from './Pages/Blog.vue'
 import BlogPost from './Pages/BlogPost.vue'
+import LearningPaths from './Pages/LearningPaths.vue'
 
 const routes = [
   {
@@ -37,6 +38,16 @@ const routes = [
     path: "/resume",
     name: "resume",
     component: MyResume
+  },
+  {
+    path: "/learning-paths",
+    name: "learningPaths",
+    component: LearningPaths
+  },
+  {
+    path: "/learning-paths/:topic",
+    name: "learningPathTopic",
+    component: LearningPaths
   },
   {
     path: "/blog",

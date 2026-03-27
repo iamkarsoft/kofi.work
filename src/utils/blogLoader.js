@@ -119,6 +119,9 @@ export async function getAllPostsAsync() {
           author: data.author || 'Kofi Ramos',
           excerpt: data.excerpt || '',
           layout: data.layout || 'post',
+          learning_path: !!data.learning_path,
+          path_tag: data.path_tag ? String(data.path_tag).trim() : null,
+          course: data.course ? String(data.course).trim() : null,
           content: markdownContent,
           // Spread other data fields
           ...data,
@@ -132,6 +135,9 @@ export async function getAllPostsAsync() {
         delete post.tags;
         post.categories = categories;
         post.tags = categories;
+        post.learning_path = !!data.learning_path;
+        post.path_tag = data.path_tag ? String(data.path_tag).trim() : null;
+        post.course = data.course ? String(data.course).trim() : null;
         
         return post;
       } catch (error) {
@@ -247,6 +253,43 @@ export function getPostsByCategory(category) {
       cat.toLowerCase() === category.toLowerCase()
     )
   );
+}
+
+// Get all learning path posts
+export function getLearningPathPosts() {
+  const allPosts = getAllPosts();
+  return allPosts.filter(post => post.learning_path && post.path_tag);
+}
+
+// Get learning paths grouped by path_tag, with courses sub-grouped
+// Returns: { "laravel": { posts: [...], courses: { "Laravel Login": [...] } } }
+export function getLearningPaths() {
+  const posts = getLearningPathPosts();
+  const paths = {};
+
+  posts.forEach(post => {
+    const key = post.path_tag.toLowerCase();
+    if (!paths[key]) {
+      paths[key] = { label: post.path_tag, posts: [], courses: {} };
+    }
+    paths[key].posts.push(post);
+
+    if (post.course) {
+      const courseKey = post.course;
+      if (!paths[key].courses[courseKey]) paths[key].courses[courseKey] = [];
+      paths[key].courses[courseKey].push(post);
+    }
+  });
+
+  // Sort posts oldest-first within each path and course
+  Object.values(paths).forEach(path => {
+    path.posts.sort((a, b) => new Date(a.date) - new Date(b.date));
+    Object.values(path.courses).forEach(coursePosts => {
+      coursePosts.sort((a, b) => new Date(a.date) - new Date(b.date));
+    });
+  });
+
+  return paths;
 }
 
 // Get all unique categories
