@@ -306,19 +306,23 @@ export function getAllCategories() {
   return Array.from(categorySet).sort();
 }
 
-// Configure marked to use highlight.js for code blocks
-marked.setOptions({
-  highlight: function(code, lang) {
-    if (lang && hljs.getLanguage(lang)) {
+// Configure marked to use highlight.js for code blocks (marked v5+ API)
+marked.use({
+  renderer: {
+    code({ text, lang }) {
+      const language = lang && hljs.getLanguage(lang) ? lang : 'plaintext';
       try {
-        return hljs.highlight(code, { language: lang }).value;
+        const highlighted = hljs.highlight(text, { language }).value;
+        return `<pre><code class="hljs language-${language}">${highlighted}</code></pre>`;
       } catch (err) {
-        // Fall through to default
+        const escaped = text
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;');
+        return `<pre><code class="hljs language-${language}">${escaped}</code></pre>`;
       }
     }
-    return hljs.highlightAuto(code).value;
-  },
-  langPrefix: 'hljs language-'
+  }
 });
 
 // Convert markdown to HTML

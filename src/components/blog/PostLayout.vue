@@ -198,14 +198,30 @@ export default {
   line-height: 1.75;
 }
 
-.blog-content :deep(ul),
-.blog-content :deep(ol) {
+.blog-content :deep(ul) {
+  list-style-type: disc;
   margin-bottom: 1rem;
   padding-left: 2rem;
 }
 
+.blog-content :deep(ol) {
+  list-style-type: decimal;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+}
+
+.blog-content :deep(ul ul) {
+  list-style-type: circle;
+  margin-bottom: 0;
+}
+
+.blog-content :deep(ul ul ul) {
+  list-style-type: square;
+}
+
 .blog-content :deep(li) {
   margin-bottom: 0.5rem;
+  display: list-item;
 }
 
 .blog-content :deep(code) {
