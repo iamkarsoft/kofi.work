@@ -85,7 +85,7 @@
             Experiences
           </h2>
           <section class="border-l-4 border-slate-400">
-            <base-job>
+            <base-job start="June 2022">
               <template v-slot:title>
                 <h3>Software Engineer Consultant</h3>
               </template>
@@ -93,7 +93,12 @@
                 <span class="my-2">June 2022 - Present</span>
               </template>
               <template v-slot:company>
-                <span class="font-bold text-orange">3Z Brands</span>
+                <a href="https://www.3zbrands.com/" target="_blank" class="flex font-bold text-orange">
+                  <span>3Z Brands</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+                </a>
               </template>
 
               <template v-slot:duties>
@@ -109,7 +114,7 @@
                 </ul>
               </template>
             </base-job>
-            <base-job>
+            <base-job start="September 2021" end="September 2023">
               <template v-slot:title>
                 <h3>Full-Stack Web Developer</h3>
               </template>
@@ -133,7 +138,7 @@
                 </ul>
               </template>
             </base-job>
-            <base-job>
+            <base-job start="March 2021" end="August 2021">
               <template v-slot:title>
                 <h3>Web Developer Intern</h3>
               </template>
@@ -154,7 +159,7 @@
                 </ul>
               </template>
             </base-job>
-            <base-job>
+            <base-job start="May 2020" end="October 2020">
               <template v-slot:title>
                 <h3 class="text-2xl font-bold text-gray-700 job__title">
                   Web Developer Intern
@@ -164,7 +169,13 @@
                 <span class="my-2">May 2020 - October 2020</span>
               </template>
               <template v-slot:company>
-                <span class="font-bold text-orange">TeamAlfy</span>
+                <a href="https://teamalfy.com" target="_blank" class="flex font-bold text-orange">
+                  <span>TeamAlfy</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" />
+                </svg>
+                </a>
+
               </template>
               <template v-slot:duties>
                 <ul class="px-8 list-disc">

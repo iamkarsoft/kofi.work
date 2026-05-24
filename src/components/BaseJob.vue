@@ -21,8 +21,9 @@
       <div class="ml-0 job__title font-bold text-2xl text-gray-700 my-2">
       <slot name="title" ></slot>
       </div>
-      <div class=" ">
-      <slot name="date" class=""></slot>
+      <div class="text-right">
+        <slot name="date" class=""></slot>
+        <p v-if="duration" class="text-xs text-gray-400 mt-0.5">{{ duration }}</p>
       </div>
 
     </section>
@@ -40,8 +41,64 @@
 export default {
   name: "BaseJob",
 
-  data() {
-    return {};
+  props: {
+    start: {
+      type: String,
+      default: null,
+    },
+    end: {
+      type: String,
+      default: null, // null means "Present"
+    },
+  },
+
+  computed: {
+    duration() {
+      if (!this.start) return null;
+
+      const MONTHS = {
+        january: 0, february: 1, march: 2, april: 3,
+        may: 4, june: 5, july: 6, august: 7,
+        september: 8, october: 9, november: 10, december: 11,
+      };
+
+      const parseDate = (str) => {
+        if (!str || str.toLowerCase() === 'present') return new Date();
+        const [monthStr, yearStr] = str.trim().split(' ');
+        const month = MONTHS[monthStr.toLowerCase()];
+        const year = parseInt(yearStr, 10);
+        return new Date(year, month, 1);
+      };
+
+      const startDate = parseDate(this.start);
+      const endDate = parseDate(this.end);
+
+      let years = endDate.getFullYear() - startDate.getFullYear();
+      let months = endDate.getMonth() - startDate.getMonth();
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      // For named end dates where the months differ, add 1 to count both
+      // the start and end month (Mar→Aug = 6, not 5).
+      // Same-month spans are exact anniversaries so no extra month needed
+      // (Sep 2021→Sep 2023 = 2 years, not 2 years 1 month).
+      if (this.end && startDate.getMonth() !== endDate.getMonth()) {
+        months += 1;
+        if (months === 12) {
+          months = 0;
+          years += 1;
+        }
+      }
+
+      const parts = [];
+      if (years > 0) parts.push(`${years} year${years !== 1 ? 's' : ''}`);
+      if (months > 0) parts.push(`${months} month${months !== 1 ? 's' : ''}`);
+
+      return parts.length ? parts.join(', ') : 'Less than a month';
+    },
   },
 };
 </script>
