@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Laravel One to One relationship"
-date: 2026-05-23
+title: "Laravel One to Many relationship"
+date: 2026-05-25
 categories: laravel database eloquent
 topic: "Laravel Eloquent relationship"
 learning_path: true
@@ -9,7 +9,8 @@ path_tag: "Laravel Eloquent Relationship"
 ---
 
 
-This is one of the simplest relationship in laravel. One record is related to another record in another table.
+This is similar to the [one to one relationship]("https://kofi.work/blog/laravel-one-to-one-relationship").
+But this time, one record has multiple children and is associated in another table.
 
 
 There are few things that make you know that will make you identify
@@ -23,10 +24,7 @@ public function up():void
 
    $table->foreignId('user_id') // foreign key id on user id, 
     ->constrained() // Constrained means must belong to a user
-    ->cascadeOnDelete(); // means delete  if user data is deleted;
-
-    $table->unique('user_id'); // enforces one to one relationship
-
+    // No cascasding or unique because we might have multiple children
 }
 
 ```
@@ -37,22 +35,18 @@ public function up():void
 
 ```php
 //** User model | Parent
-public function profile() : HasOne
+public function tasks() : hasMany
 {
-    return $this->hasOne(Profile::class)
-    ->withDefault([
-        'handle' => 'No profile is set for this user',
-        'bio' => 'No bio exists'
-    ]);
+    return $this->hasMany(Task::class);
 }
 ``` 
 
 ```php
-//** Profile model | Child
+//** Task model | Child
 
 public function user() : BelongsTo
 {
-    return $this->BelongsTo(User::class);
+    return $this->belongsTo(User::class);
 }
 
 ```
@@ -63,32 +57,39 @@ public function user() : BelongsTo
 ```php
 // Routes
 
-Route::get('/', function(){
-    $user = User::find(1);
-    return view('welcome', ['user' => $user]);
+
+Route::get('/list', function () {
+    $users = User::with(['profile', 'tasks' => function($query) {
+        $query->where('status', 'A');
+    }])->get();
+
+    return view('list', ['users' => $users]);
 });
+
 
 ```
 
 4. Using the the relationship in blade views
 
 ```php
-{{ $user->profile->handle }}
-{{ $user->profile->bio }}
+  @foreach ($user->tasks as $task)
+    <li class="ml-3 mb-1">{{ $task->title }}</li>
+    @endforeach
 ```
 
 
 5. Eager loading to avoid **N+1 query problems**
 
 Eager loading is a technique used in database queries to load all necessary related data in a single query, rather than making multiple queries for each piece of related data.
-<br>`$users = User::with(['profile'])->get();`
+<br>`$users = User::with(['profile','tasks'])->get();`
 
 6. Using reverse relationship.
-
 ```php
-Route::get('/profile', function(){
-  $profile = Profile::find(1);
-  $profile->user->id;
+Route::get('/', function () {
+    $user = User::find(1);
+    $tasks = $user->tasks()->where('status', 'A')->get();
+
+    return view('welcome', ['user' => $user, 'tasks' => $tasks]);
 });
 ```
 
