@@ -9,7 +9,7 @@ path_tag: "Laravel Eloquent Relationship"
 ---
 
 
-This is similar to the [one to one relationship]("https://kofi.work/blog/laravel-one-to-one-relationship").
+This is similar to the [one to one relationship](/blog/laravel-one-to-one-relationship).
 But this time, one record has multiple children and is associated in another table.
 
 
