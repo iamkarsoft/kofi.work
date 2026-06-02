@@ -28,7 +28,7 @@ Think of Teams and Users — like Slack. A user can belong to many teams and a t
 
 There are a few things that help you identify when a model has a many to many relationship.
 
-1. Migration relationship
+## 1. Migration relationship
 
 Unlike the previous relationships, there is no foreign key on either model's table. Instead we create a **pivot table** to hold the connection between the two.
 
@@ -56,7 +56,7 @@ public function up(): void
 ```
 
 
-2. Setting up the Many to Many relationship with Eloquent Models
+## 2. Setting up the Many to Many relationship with Eloquent Models
 
 ```php
 // User model
@@ -80,7 +80,7 @@ public function users(): BelongsToMany
 ```
 
 
-3. Using the relationship in code
+## 3. Using the relationship in code
 
 ```php
 Route::get('/', function () {
@@ -100,7 +100,7 @@ Route::get('/', function () {
 ```
 
 
-4. Creating Accessors
+## 4. Creating Accessors
 
 Accessors let you compute or format data from a model. The `get` prefix means we are reading a value.
 
@@ -113,7 +113,7 @@ public function getTeamsCountAttribute(): int
 ```
 
 
-5. Creating a Pivot Model
+## 5. Creating a Pivot Model
 
 When you need extra logic on pivot data, extend `Pivot` instead of `Model`.
 
@@ -134,7 +134,7 @@ class Membership extends Pivot
 ```
 
 
-6. Syncing pivot data
+## 6. Syncing pivot data
 
 `sync()` **wipes** the existing pivot records and replaces them with the new data — useful when updating a user's team memberships in bulk.
 
@@ -157,7 +157,7 @@ class TeamUserController extends Controller
 ```
 
 
-7. Eager loading to avoid **N+1 query problems**
+## 7. Eager loading to avoid **N+1 query problems**
 
 Eager loading is a technique used in database queries to load all necessary related data in a single query, rather than making multiple queries for each piece of related data.
 <br>`$users = User::with(['teams'])->get();`
