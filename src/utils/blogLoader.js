@@ -309,6 +309,16 @@ export function getAllCategories() {
 // Configure marked to use highlight.js for code blocks (marked v5+ API)
 marked.use({
   renderer: {
+    heading({ text, depth, raw }) {
+      const id = raw
+        .replace(/^#{1,6}\s+/, '')
+        .replace(/\n$/, '')
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-');
+      return `<h${depth} id="${id}">${text}</h${depth}>\n`;
+    },
     code({ text, lang }) {
       const language = lang && hljs.getLanguage(lang) ? lang : 'plaintext';
       try {

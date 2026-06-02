@@ -12,11 +12,21 @@ path_tag: "Laravel Eloquent Relationship"
 This is similar to the [one to one relationship](/blog/laravel-one-to-one-relationship).
 But this time, one record has multiple children and is associated in another table.
 
+**What's in this post:**
 
-There are few things that make you know that will make you identify
-when a record or a model has a one to one relationship.
+| # | Section |
+|---|---------|
+| 1 | [Migration](#1-migration-relationship) — foreign key setup, no cascade, no unique |
+| 2 | [Eloquent Models](#2-setting-up-the-relationship-with-eloquent-models) — `hasMany` on parent, `belongsTo` on child |
+| 3 | [Routes / code](#3-using-the-relationship-in-code) — eager loading with a constraint |
+| 4 | [Blade views](#4-using-the-relationship-in-blade-views) — looping through children |
+| 5 | [Eager loading](#5-eager-loading-to-avoid-n1-query-problems) — N+1 explanation |
+| 6 | [Reverse relationship](#6-using-the-reverse-relationship) — querying from the child side |
 
-1. Migration relationship
+
+There are a few things that help you identify when a model has a one to many relationship.
+
+## 1. Migration relationship
 
 ```php
 public function up():void
@@ -31,7 +41,7 @@ public function up():void
 
 
 
-2. Setting up One to One relationship with Eloquent Models
+## 2. Setting up the relationship with Eloquent Models
 
 ```php
 //** User model | Parent
@@ -52,7 +62,7 @@ public function user() : BelongsTo
 ```
 
 
-3. Using the relationship in code
+## 3. Using the relationship in code
 
 ```php
 // Routes
@@ -69,7 +79,7 @@ Route::get('/list', function () {
 
 ```
 
-4. Using the the relationship in blade views
+## 4. Using the relationship in Blade views
 
 ```php
   @foreach ($user->tasks as $task)
@@ -78,12 +88,12 @@ Route::get('/list', function () {
 ```
 
 
-5. Eager loading to avoid **N+1 query problems**
+## 5. Eager loading to avoid **N+1 query problems**
 
 Eager loading is a technique used in database queries to load all necessary related data in a single query, rather than making multiple queries for each piece of related data.
 <br>`$users = User::with(['profile','tasks'])->get();`
 
-6. Using reverse relationship.
+## 6. Using the reverse relationship
 ```php
 Route::get('/', function () {
     $user = User::find(1);
